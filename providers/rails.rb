@@ -135,7 +135,7 @@ action :before_symlink do
   end
 
   if new_resource.precompile_assets
-    command = "rake assets:precompile"
+    command = "rake assets:precompile --trace"
     command = "#{bundle_command} exec #{command}" if new_resource.bundler
     execute command do
       cwd new_resource.release_path
